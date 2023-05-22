@@ -20,8 +20,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Fichero");
-        
+        this.primaryStage.setTitle("ExampleOne");
         initRootLayout();
         
         showPersonOverview();
@@ -31,7 +30,7 @@ public class MainApp extends Application {
     public void initRootLayout() {
         try {
             // Load root layout from fxml file.
-            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/View/RootLayout.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/ventanasCon_View/RootLayout.fxml"));
             AnchorPane pane = loader.load();
             //rootLayout = (BorderPane) loader.load();
             
@@ -50,20 +49,24 @@ public class MainApp extends Application {
     public void showPersonOverview() {
         try {
             // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("View/PersonOverview.fxml"));
-            AnchorPane personOverview = (AnchorPane) loader.load();
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/ventanasCon_View/PersonOverview.fxml"));
+            //AnchorPane personOverview = (AnchorPane) loader.load();
+            AnchorPane pane = loader.load();
             
             // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
+            //rootLayout.setCenter(personOverview);
+            //puesta en escena
+            Scene scene = new Scene(pane);
+            primaryStage.setScene(scene);
+            primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     
-        public Stage getPrimaryStage() {
-            return primaryStage;
-        }
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
 
     public static void main(String[] args) {
         launch(args);

@@ -11,17 +11,16 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="299.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19">
+<AnchorPane id="AnchorPane" prefHeight="299.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ControladorDescripcionPersona">
    <children>
       <SplitPane dividerPositions="0.29797979797979796" layoutX="174.0" layoutY="99.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView layoutX="-124.0" layoutY="-101.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="personTable" layoutX="-124.0" layoutY="-101.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn prefWidth="89.59994202852249" text="First Name" />
-                      <TableColumn prefWidth="84.79998779296875" text="Last Name" />
+                      <TableColumn fx:id="firstNameColumn" prefWidth="89.59994202852249" text="First Name" />
+                      <TableColumn fx:id="lastNameColumn" prefWidth="84.79998779296875" text="Last Name" />
                     </columns>
                   </TableView>
                </children>
@@ -43,25 +42,25 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="First Name" />
-                        <Label text="Last Name" GridPane.rowIndex="1" />
-                        <Label text="Street" GridPane.rowIndex="2" />
-                        <Label text="City" GridPane.rowIndex="3" />
-                        <Label text="Postal Code" GridPane.rowIndex="4" />
-                        <Label text="Birthday" GridPane.rowIndex="5" />
-                        <Label text="Label" GridPane.columnIndex="1" />
-                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label text="Nombres" />
+                        <Label text="Apellidos" GridPane.rowIndex="1" />
+                        <Label text="Calle" GridPane.rowIndex="2" />
+                        <Label text="Ciudad" GridPane.rowIndex="3" />
+                        <Label text="Codigo Postal" GridPane.rowIndex="4" />
+                        <Label text="Cumpleaños" GridPane.rowIndex="5" />
+                        <Label fx:id="firstNameLabel" text="Label" GridPane.columnIndex="1" />
+                        <Label fx:id="lastNameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="streetLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="cityLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="postalCodeLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="birthdayLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
                   <HBox layoutX="157.0" layoutY="253.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                      <children>
-                        <Button mnemonicParsing="false" text="New..." />
-                        <Button mnemonicParsing="false" text="Edit..." />
-                        <Button mnemonicParsing="false" text="Delete" />
+                        <Button mnemonicParsing="false" onAction="#handleNewPerson" text="New..." />
+                        <Button mnemonicParsing="false" onAction="#handleEditPerson" text="Edit..." />
+                        <Button mnemonicParsing="false" onAction="#handleDeletePerson" text="Delete" />
                      </children>
                   </HBox>
                </children>
